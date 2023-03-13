@@ -82,23 +82,23 @@ jobs:
       - name: Push Docker image
         run: docker push $PACKAGE_REGISTRY/xhgui$PR_TAG
 
-    build-mongodb-image:
-      name: XHgui Image
-      runs-on: ubuntu-latest
+  build-mongodb-image:
+    name: XHgui Image
+    runs-on: ubuntu-latest
 
-      steps:
-        - name: Checkout repository
-          uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3.2.0
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3.2.0
 
-        - name: Login to the package registry
-          run: |
-            echo "$REGISTRY_PASSWORD" | docker login $PACKAGE_REGISTRY_HOST -u "$REGISTRY_USERNAME" --password-stdin
+      - name: Login to the package registry
+        run: |
+          echo "$REGISTRY_PASSWORD" | docker login $PACKAGE_REGISTRY_HOST -u "$REGISTRY_USERNAME" --password-stdin
 
-        - name: Build Docker image
-          run: docker build --build-arg PACKAGE_REGISTRY=$PACKAGE_REGISTRY --build-arg PR_TAG=$PR_TAG -t $PACKAGE_REGISTRY/mongodb$PR_TAG images/mongodb
+      - name: Build Docker image
+        run: docker build --build-arg PACKAGE_REGISTRY=$PACKAGE_REGISTRY --build-arg PR_TAG=$PR_TAG -t $PACKAGE_REGISTRY/mongodb$PR_TAG images/mongodb
 
-        - name: Log Docker images
-          run: docker images
+      - name: Log Docker images
+        run: docker images
 
-        - name: Push Docker image
-          run: docker push $PACKAGE_REGISTRY/mongodb$PR_TAG        
+      - name: Push Docker image
+        run: docker push $PACKAGE_REGISTRY/mongodb$PR_TAG
