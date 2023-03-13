@@ -27,16 +27,6 @@ $latest = '7.4';
  * }
  */
 $php_versions = array(
-	'5.6.20' => array(
-		'php' => array(
-			'base_name'       => 'wordpressdevelop/php:5.6.20-fpm',
-		),
-	),
-	'5.6' => array(
-		'php' => array(
-			'base_name'       => 'wordpressdevelop/php:5.6-fpm',
-		),
-	),
 	'7.0' => array(
 		'php' => array(
 			'base_name'       => 'wordpressdevelop/php:7.0-fpm',
