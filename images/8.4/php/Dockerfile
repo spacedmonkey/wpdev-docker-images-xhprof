@@ -1,4 +1,4 @@
-FROM wordpressdevelop/php:8.3-fpm
+FROM wordpressdevelop/php:8.4-fpm
 
 # install the package that will collect data
 WORKDIR /var/xhgui
